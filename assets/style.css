@@ -73,7 +73,12 @@ body {
 	font-size: 14px;
 }
 .section {
-	padding-top: 90px;
+	padding: 90px 0;
+}
+hr {
+	height: 1px;
+	width: 100%;
+	background-color: var(--color-light-gray);
 }
 /*блоки*/
 /*header*/
@@ -125,6 +130,7 @@ body {
 /*section_intro*/
 
 .section_intro {
+	padding: 0;
 	display: flex;
 	color: var(--color-white);
 	background: linear-gradient(rgba(243,129,128,0.9), rgba(252,227,138,0.9)), url(/assets/images/img1.jpg);
@@ -200,6 +206,9 @@ body {
 .section__header {
 	color: var(--color-black);
 }
+.section__header::after {
+	margin: 40px auto 50px;
+}
 .section__suptitle {
 	font-family: 'Kaushan Script', cursive;
 	font-size: 24px;
@@ -209,15 +218,14 @@ body {
 	font-weight: 700;
 	font-size: 30px;
 	text-transform: uppercase;
-	padding: 20px 0 40px;
-}
-.section__content {
-	line-height: 1.6;
+	padding-top: 20px;
 }
 .section__text {
-	padding: 50px 0 100px;
+	line-height: 1.6;
+	margin-bottom: 100px;
 }
 .cards {
+	line-height: 1.6;
 	display: flex;
 	justify-content: space-between;
 }
@@ -231,11 +239,11 @@ body {
 	opacity: 0.8;
 }
 .cards__item_moving {
-	background-color: var(--color-cyan);
 	transition: transform .2s;
 }
 .cards__item_moving:hover {
 	transform: translate3d(-10px, -10px, 0);
+	box-shadow: 10px 10px 0 var(--color-cyan);
 }
 .cards__img {
 }
@@ -251,7 +259,7 @@ body {
 	background-image: linear-gradient(var(--color-orange), var(--color-yellow));
 	opacity: 0;
 	transition: opacity .2s;
-	box-shadow: 10px 10px 0 var(--color-cyan);
+
 }
 .cards__content {
 	position: absolute;
@@ -272,49 +280,170 @@ body {
 
 /*about us*/
 
+/*section_cyan*/
+
 .section_cyan {
+	background-color: var(--color-cyan);
+	padding: 0;
 }
 .enum {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 .enum__item {
+	color: var(--color-white);
+	border-left: 1px solid #b5eae0;
+	width: 20%;
+	padding: 80px 0;
+}
+.enum__item:last-child {
+	border-right: 1px solid #b5eae0;
 }
 .enum__title {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 72px;
+	font-weight: 700;
 }
 .enum__text {
+	margin-top: 30px;
+	font-size: 14px;
 }
+
+/*section_cyan*/
+
+/*services*/
+
 .services {
+	text-align: left;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	line-height: 1.6;
+}
+.services hr {
+	margin: 50px 0;
 }
 .services__item {
+	position: relative;
+	width: 33.33%;
+	padding: 0 30px 0 90px;
 }
 .services__icon {
+	position: absolute;
+	left: 20px;
+	top: 5px;
 }
 .services_title {
+	color: var(--color-black);
+	margin-bottom: 15px;
+	align-self: start;
 }
 .services__text {
 }
+
+/*services*/
+
+/*section_design*/
+
 .section_design {
+	background: linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8)), url(/assets/images/img2.jpg);
+	background-size: cover;
+	padding-bottom: 0;
+	margin-bottom: 20px;
 }
 .devices {
+	position: relative;
 }
 .devices__item {
 }
+.devices__item:first-child {
+	transform: translateX(-25px);
+}
+.devices__item:last-child {
+	position: absolute;
+	right: 19%;
+	top: 34%;
+}
+
+/*section_design*/
+
+/*wedo*/
+
 .wedo {
+	display: flex;
+	height: 379px;
+	align-items: start;
 }
 .wedo__img {
+	padding-right: 15px;
 }
 .accordion {
+	line-height: 1.6;
 }
 .accordion__item {
+	text-align: left;
+	border: solid 1px var(--color-light-gray);
+	margin-bottom: 10px;
+}
+.accordion__item_active {
+}
+.accordion__item_active .accordion__text{
+	display: block;
+	border-top: solid 1px var(--color-light-gray);
+}
+.accordion__item_active .accordion__title::after {
+	transform:  translateY(-25%) rotate(45deg);
+}
+.accordion__item:last-child {
+	margin-bottom: 0;
 }
 .accordion__header {
+	display: flex;
+	align-items: center;
+	padding: 18px 0;
+	position: relative;
+}
+.accordion__header:hover {
+	cursor: pointer;
 }
 .accordion__icon {
+	padding: 0 15px;
 }
 .accordion__title {
+	font-weight: 700;
+	color: var(--color-black);
+}
+.accordion__title::after {
+	content: "";
+	width: 15px;
+	height: 15px;
+	border-left: solid 3px #ccc;
+	border-top: solid 3px #ccc;
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform:  translateY(-75%) rotate(-135deg);
 }
 .accordion__text {
+	font-style: italic;
+	display: none;
+	padding: 20px 40px 20px 20px;
+	overflow: auto auto;
+	height: 151px;
 }
-.coment {
+.accordion__text::-webkit-scrollbar {
+	width: 5px;
+	background-color: var(--color-light-gray);
+	border-radius: 10px;
+}
+.accordion__text::-webkit-scrollbar-thumb {
+  background-color: var(--color-cyan);
+	border-radius: 10px;
+}
+/*wedo*/
+
+.comment {
 }
 .comment__img {
 }
